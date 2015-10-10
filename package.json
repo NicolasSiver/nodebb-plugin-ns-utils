@@ -1,0 +1,27 @@
+{
+  "name": "nodebb-plugin-ns-utils",
+  "version": "1.0.0",
+  "description": "Set of utility functions to help you support your forum. Do you need to purge chats? Do you need to delete obsolete data? This plugin will help you.",
+  "main": "plugin.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NicolasSiver/nodebb-plugin-ns-utils.git"
+  },
+  "keywords": [
+    "utils",
+    "data",
+    "purge",
+    "manipulate",
+    "remove",
+    "delete"
+  ],
+  "author": "Nicolas Siver",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/NicolasSiver/nodebb-plugin-ns-utils/issues"
+  },
+  "homepage": "https://github.com/NicolasSiver/nodebb-plugin-ns-utils#readme"
+}
