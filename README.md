@@ -1,2 +1,25 @@
-# nodebb-plugin-ns-utils
+# NodeBB Utils
+
 Set of utility functions to help you support your forum. Do you need to purge chats? Do you need to delete obsolete data? This plugin will help you.
+
+![Version](https://img.shields.io/npm/v/nodebb-plugin-ns-utils.svg)
+![Dependencies](https://david-dm.org/NicolasSiver/nodebb-plugin-ns-utils.svg)
+![bitHound Score](https://www.bithound.io/github/NicolasSiver/nodebb-plugin-ns-utils/badges/score.svg)
+![Code Climate](https://img.shields.io/codeclimate/github/NicolasSiver/nodebb-plugin-ns-utils.svg)
+
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+**Caution: plugin can do harm to your data. Please, backup your data.**
+
+## Utilities
+
+- **Purge Chats** - remove all chats from the forum
+
+## Changelog
+
+**v1.0.0 - TBD**
+
+- Initial release of the plugin
