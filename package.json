@@ -23,5 +23,8 @@
   "bugs": {
     "url": "https://github.com/NicolasSiver/nodebb-plugin-ns-utils/issues"
   },
-  "homepage": "https://github.com/NicolasSiver/nodebb-plugin-ns-utils#readme"
+  "homepage": "https://github.com/NicolasSiver/nodebb-plugin-ns-utils#readme",
+  "nbbpm": {
+    "compatibility": "^0.8.0"
+  }
 }
