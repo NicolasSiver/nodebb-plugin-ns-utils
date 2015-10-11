@@ -20,7 +20,7 @@ export default class Application extends React.Component {
                         utils={this.getAvailableUtils()}/>
                 </div>
                 <div className="col-md-9">
-                    
+
                 </div>
             </div>
         );
