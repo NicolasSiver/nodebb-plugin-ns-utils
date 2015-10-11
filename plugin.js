@@ -1,7 +1,7 @@
 (function (Plugin) {
     'use strict';
 
-    var filters = require('./app/filters');
+    var filters = require('./plugin/filters');
 
     //NodeBB list of Hooks: https://github.com/NodeBB/NodeBB/wiki/Hooks
     Plugin.hooks = {
