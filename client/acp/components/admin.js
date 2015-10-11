@@ -1,15 +1,19 @@
+import connectToStores from 'alt/utils/connectToStores';
 import React from 'react';
 import UtilsList from './utils-list';
+import UtilsStore from '../stores/utils-store';
 
-export default class Application extends React.Component {
+class Admin extends React.Component {
     constructor(props) {
         super(props);
     }
 
-    getAvailableUtils() {
-        return [
-            {name: 'Purge Chats', entity: 'purge-chats'}
-        ];
+    static getStores() {
+        return [UtilsStore];
+    }
+
+    static getPropsFromStores() {
+        return UtilsStore.getState();
     }
 
     render() {
@@ -17,7 +21,8 @@ export default class Application extends React.Component {
             <div className="row">
                 <div className="col-md-3">
                     <UtilsList
-                        utils={this.getAvailableUtils()}/>
+                        selected={this.props.selected}
+                        utils={this.props.utils}/>
                 </div>
                 <div className="col-md-9">
 
@@ -26,3 +31,5 @@ export default class Application extends React.Component {
         );
     }
 }
+
+export default connectToStores(Admin);

@@ -18,7 +18,7 @@ export default class UtilsList extends React.Component {
             <div className="panel panel-default">
                 <div className="panel-heading"><i className="fa fa-bug"></i> Utils</div>
                 <div className="panel-body">
-                    <ul>
+                    <ul className="utils-list">
                         {this.listItems()}
                     </ul>
                 </div>

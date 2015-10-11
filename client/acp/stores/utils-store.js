@@ -1,4 +1,5 @@
 import alt from '../alt';
+import Util from '../models/util';
 import UtilsActions from '../actions/utils-actions';
 
 class UtilsStore {
@@ -9,13 +10,16 @@ class UtilsStore {
 
         this.state = {
             selected: null,
-            utils   : []
+            utils   : [
+                {utilId: Util.PURGE_CHATS, name: 'Purge Chats', description: ''},
+                {utilId: Util.SANITIZE_DOCUMENTS, name: 'Sanitize Documents', description: ''}
+            ]
         };
     }
 
     selectUtil(util) {
         this.setState({
-            selected: util.utildId
+            selected: util.utilId
         });
     }
 }
