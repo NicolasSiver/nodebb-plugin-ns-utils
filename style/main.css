@@ -1,0 +1,16 @@
+.plugin-utils {
+
+    .utils-list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        > li {
+            cursor: pointer;
+
+            &.selected {
+
+            }
+        }
+    }
+}

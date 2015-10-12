@@ -17,7 +17,8 @@
   "less": [],
   "scripts": [],
   "staticDirs": {
-    "acp": "./client/acp"
+    "acp": "./client/acp",
+    "css": "./public/css"
   },
   "templates": "./public/templates"
 }
