@@ -23,10 +23,17 @@ export default class UtilsList extends React.Component {
     }
 
     render() {
+        let hint;
+
+        if (!this.props.selected) {
+            hint = <small className="basic-hint"><i className="fa fa-long-arrow-down"></i> select utility</small>;
+        }
+
         return (
             <div className="panel panel-default">
                 <div className="panel-heading"><i className="fa fa-bug"></i> Utils</div>
                 <div className="panel-body">
+                    {hint}
                     <ul
                         className="utils-list">
                         {this.listItems()}

@@ -1,1 +1,1 @@
-.plugin-utils .utils-list{list-style:none;margin:0;padding:0}.plugin-utils .utils-list>li{cursor:pointer;padding:8px 0}.plugin-utils .utils-list>li.selected{background-color:#2196f3}
+.plugin-utils .basic-hint{color:#ff6f00}.plugin-utils .utils-list{list-style:none;margin:0;padding:0}.plugin-utils .utils-list>li{cursor:pointer;padding:8px 4px}.plugin-utils .utils-list>li.selected{color:#fff;background-color:#2196f3}
