@@ -31,6 +31,7 @@ gulp.task('scripts', function () {
 
 gulp.task('watch', function () {
     gulp.watch('style/**/*.scss', ['css', browserSync.reload]);
+    gulp.watch('client/acp/**/*.js', [browserSync.reload]);
 });
 
 gulp.task('default', ['css', 'browser-sync', 'scripts', 'watch']);
