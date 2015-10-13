@@ -17,9 +17,9 @@ class UtilsStore {
         };
     }
 
-    selectUtil(util) {
+    selectUtil(utilItem) {
         this.setState({
-            selected: util.utilId
+            selected: utilItem.utilId
         });
     }
 }

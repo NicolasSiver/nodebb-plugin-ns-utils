@@ -10,9 +10,10 @@
 
     > li {
       cursor: pointer;
-      padding: $margin-s 0;
+      padding: $margin-s $margin-xs;
 
       &.selected {
+        color: palette(White, 500);
         background-color: palette(Blue, 500);
       }
     }

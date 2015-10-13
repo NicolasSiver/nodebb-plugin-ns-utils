@@ -1,8 +1,8 @@
 import alt from '../alt';
 
 class UtilsActions {
-    selectUtil(utilId) {
-        return {utilId}
+    selectUtil(index, utilId) {
+        return {index, utilId}
     }
 }
 

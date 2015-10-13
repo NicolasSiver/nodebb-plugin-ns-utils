@@ -18,6 +18,7 @@ System.config({
     "alt": "npm:alt@0.17.4",
     "babel": "npm:babel-core@5.8.25",
     "babel-runtime": "npm:babel-runtime@5.8.25",
+    "classnames": "npm:classnames@2.1.5",
     "core-js": "npm:core-js@1.2.1",
     "react": "npm:react@0.14.0",
     "react-dom": "npm:react-dom@0.14.0",
@@ -69,6 +70,11 @@ System.config({
       "base64-js": "npm:base64-js@0.0.8",
       "ieee754": "npm:ieee754@1.1.6",
       "is-array": "npm:is-array@1.0.1"
+    },
+    "npm:classnames@2.1.5": {
+      "assert": "github:jspm/nodelibs-assert@0.1.0",
+      "process": "github:jspm/nodelibs-process@0.1.2",
+      "systemjs-json": "github:systemjs/plugin-json@0.1.0"
     },
     "npm:core-js@1.2.1": {
       "fs": "github:jspm/nodelibs-fs@0.1.2",
