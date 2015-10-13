@@ -30,7 +30,7 @@ gulp.task('scripts', function () {
 });
 
 gulp.task('watch', function () {
-    gulp.watch('style/**/*.css', ['css', browserSync.reload]);
+    gulp.watch('style/**/*.scss', ['css', browserSync.reload]);
 });
 
 gulp.task('default', ['css', 'browser-sync', 'scripts', 'watch']);
