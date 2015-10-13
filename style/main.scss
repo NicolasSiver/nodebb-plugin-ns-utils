@@ -1,4 +1,5 @@
 @import "palette";
+@import "vars";
 
 .plugin-utils {
 
@@ -9,6 +10,7 @@
 
     > li {
       cursor: pointer;
+      padding: $margin-s 0;
 
       &.selected {
         background-color: palette(Blue, 500);
