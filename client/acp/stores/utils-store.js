@@ -17,6 +17,19 @@ class UtilsStore {
         };
     }
 
+    static getItemById(utilId) {
+        let result = null;
+
+        for (let util of this.state.utils) {
+            if(util.utilId === utilId){
+                result = util;
+                break;
+            }
+        }
+
+        return result;
+    }
+
     selectUtil(utilItem) {
         this.setState({
             selected: utilItem.utilId
