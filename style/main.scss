@@ -7,6 +7,12 @@
     color: palette(Amber, 900);
   }
 
+  .caution {
+    border: 1px dashed palette(Red, 500);
+    background-color: palette(Red, 50);
+    padding: $margin-s;
+  }
+
   .utils-list {
     list-style: none;
     margin: 0;

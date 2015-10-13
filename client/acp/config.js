@@ -13,7 +13,6 @@ System.config({
     "github:*": "jspm_packages/github/*",
     "npm:*": "jspm_packages/npm/*"
   },
-
   map: {
     "alt": "npm:alt@0.17.4",
     "babel": "npm:babel-core@5.8.25",
