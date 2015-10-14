@@ -4,9 +4,12 @@
 (function (Controller) {
     'use strict';
 
-    var nodebb = require('./nodebb');
+    var async  = require('async'),
 
-    var nconf = nodebb.nconf;
+        nodebb = require('./nodebb');
+
+    var dbClient = nodebb.db.client,
+        nconf    = nodebb.nconf;
 
     // Messages, documents:
     // message - 'message:5' [Hash]
@@ -14,7 +17,11 @@
     // chat - 'uid:1:chats', includes uid of companion and time [Sorted]
 
     Controller.getChatsStats = function (done) {
-        done(null, {stats: 100});
+        async.parallel({
+            messagesCount: function (callback) {
+                dbClient.collection('objects').count({_key: /^message:\d+$/}, callback);
+            }
+        }, done);
     };
 
     Controller.getPrimaryDatabase = function (done) {
