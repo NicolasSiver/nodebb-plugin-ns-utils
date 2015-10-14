@@ -12,12 +12,17 @@
 
         //Acknowledgements
         adminSockets[constants.SOCKET_NAMESPACE].chatsStatsGet = Sockets.chatsStatsGet;
+        adminSockets[constants.SOCKET_NAMESPACE].primaryDbGet = Sockets.primaryDbGet;
 
         callback();
     };
 
     Sockets.chatsStatsGet = function (socket, payload, callback) {
         controller.getChatsStats(callback);
+    };
+
+    Sockets.primaryDbGet = function (socket, payload, callback) {
+        controller.getPrimaryDatabase(callback);
     };
 
 })(module.exports);
