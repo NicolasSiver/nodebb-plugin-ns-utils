@@ -1,6 +1,6 @@
+import Actions from '../actions';
 import classNames from 'classnames';
 import React from 'react';
-import UtilActions from '../actions/utils-actions';
 
 export default class UtilsList extends React.Component {
     constructor(props) {
@@ -8,7 +8,7 @@ export default class UtilsList extends React.Component {
     }
 
     itemDidClick(index, utilId, e) {
-        UtilActions.selectUtil(index, utilId);
+        Actions.selectUtil(index, utilId);
     }
 
     listItems() {

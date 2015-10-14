@@ -1,11 +1,11 @@
+import Actions from '../actions';
 import alt from '../alt';
 import Util from '../models/util';
-import UtilsActions from '../actions/utils-actions';
 
 class UtilsStore {
     constructor() {
         this.bindListeners({
-            selectUtil: UtilsActions.selectUtil
+            selectUtil: Actions.selectUtil
         });
 
         this.state = {
