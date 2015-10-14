@@ -1,7 +1,10 @@
 (function (Plugin) {
     'use strict';
 
-    var filters = require('./plugin/filters');
+    var async = require('async');
+
+    var filters = require('./plugin/filters'),
+        sockets = require('./plugin/sockets');
 
     //NodeBB list of Hooks: https://github.com/NodeBB/NodeBB/wiki/Hooks
     Plugin.hooks = {
@@ -22,7 +25,9 @@
                 router.get(pluginUri, middleware.admin.buildHeader, renderAdmin);
                 router.get(apiUri, renderAdmin);
 
-                callback();
+                async.series([
+                    async.apply(sockets.init),
+                ], callback);
             }
         }
     };
