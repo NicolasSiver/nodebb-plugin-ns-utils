@@ -25,6 +25,7 @@
       &.selected {
         color: palette(White, 500);
         background-color: palette(Blue, 500);
+        padding-left: $margin-s;
       }
     }
   }
