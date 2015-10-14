@@ -1,7 +1,8 @@
 import alt from '../alt';
 import Actions from '../actions';
+import SocketService from '../service/socket-service';
 
-class UtilsStore {
+class ChatsStore {
     constructor() {
         this.bindListeners({
             getChatsStats: Actions.getChatsStats
@@ -13,8 +14,14 @@ class UtilsStore {
     }
 
     getChatsStats() {
-
+        SocketService
+            .getChatsStats()
+            .then((chatsStats) => {
+                this.setState({
+                    stats: chatsStats
+                })
+            });
     }
 }
 
-export default alt.createStore(UtilsStore, 'UtilsStore');
+export default alt.createStore(ChatsStore, 'ChatsStore');

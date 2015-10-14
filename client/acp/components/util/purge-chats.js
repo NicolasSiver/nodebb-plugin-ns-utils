@@ -1,3 +1,4 @@
+import Actions from '../../actions';
 import ChatsStore from '../../stores/chats-store';
 import connectToStores from 'alt/utils/connectToStores';
 import React from 'react';
@@ -16,7 +17,7 @@ class PurgeChats extends React.Component {
     }
 
     componentDidMount() {
-        console.log('HIII');
+        Actions.getChatsStats();
     }
 
     render() {
