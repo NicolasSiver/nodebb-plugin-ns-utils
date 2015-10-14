@@ -8,6 +8,8 @@
     var adminSockets = nodebb.adminSockets;
 
     Sockets.init = function (callback) {
+        adminSockets[constants.SOCKET_NAMESPACE] = {};
+
         //Acknowledgements
         adminSockets[constants.SOCKET_NAMESPACE].chatsStatsGet = Sockets.chatsStatsGet;
 

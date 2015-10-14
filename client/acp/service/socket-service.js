@@ -1,7 +1,7 @@
 import Bluebird from 'bluebird';
 import SocketMethod from '../models/socket-method';
 
-let socketEmit = Bluebird.promisify(socket.emit);
+let socketEmit = Bluebird.promisify(socket.emit, socket);
 let App = app; //Global app
 
 export default class SocketService {
