@@ -13,10 +13,12 @@ System.config({
     "github:*": "jspm_packages/github/*",
     "npm:*": "jspm_packages/npm/*"
   },
+
   map: {
     "alt": "npm:alt@0.17.4",
     "babel": "npm:babel-core@5.8.25",
     "babel-runtime": "npm:babel-runtime@5.8.25",
+    "bluebird": "npm:bluebird@2.10.2",
     "classnames": "npm:classnames@2.1.5",
     "core-js": "npm:core-js@1.2.1",
     "react": "npm:react@0.14.0",
@@ -63,6 +65,9 @@ System.config({
       "util": "npm:util@0.10.3"
     },
     "npm:babel-runtime@5.8.25": {
+      "process": "github:jspm/nodelibs-process@0.1.2"
+    },
+    "npm:bluebird@2.10.2": {
       "process": "github:jspm/nodelibs-process@0.1.2"
     },
     "npm:buffer@3.5.1": {
