@@ -19,6 +19,10 @@ export default class UtilViewRenderer extends React.Component {
         }
     }
 
+    isValidDatabase(){
+        return this.props.database === 'mongo';
+    }
+
     render() {
         if (!this.props.util) {
             // Nothing to show
@@ -31,9 +35,20 @@ export default class UtilViewRenderer extends React.Component {
                 <div className="panel-body">
                     <Caution
                         text="Please, create data backup. Plugin performs irreversible actions: delete documents, change documents in place, etc."/>
-                    {this.createUtilView(this.props.util)}
+                    {this.getWrongDatabaseViewIfNeeded()}
+                    {this.isValidDatabase() ? this.createUtilView(this.props.util) : null}
                 </div>
             </div>
         );
+    }
+
+    getWrongDatabaseViewIfNeeded() {
+        if (!this.isValidDatabase()) {
+            return (
+                <Caution
+                    title="MongoDB"
+                    text="Sorry. Plugin supports only operations with MongoDB."/>
+            );
+        }
     }
 }

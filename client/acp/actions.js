@@ -6,6 +6,10 @@ class Actions {
         this.dispatch();
     }
 
+    getDatabaseName(){
+        this.dispatch();
+    }
+
     selectUtil(index, utilId) {
         return {index, utilId}
     }

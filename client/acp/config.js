@@ -21,6 +21,7 @@ System.config({
     "bluebird": "npm:bluebird@2.10.2",
     "classnames": "npm:classnames@2.1.5",
     "core-js": "npm:core-js@1.2.1",
+    "object-assign": "npm:object-assign@4.0.1",
     "react": "npm:react@0.14.0",
     "react-dom": "npm:react-dom@0.14.0",
     "github:jspm/nodelibs-assert@0.1.0": {

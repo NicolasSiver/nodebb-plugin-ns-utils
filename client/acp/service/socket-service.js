@@ -11,4 +11,11 @@ export default class SocketService {
                 App.alertError(error.message);
             });
     }
+
+    static getDatabaseName() {
+        return socketEmit(SocketMethod.GET_DATABASE_NAME, {})
+            .catch((error) => {
+                App.alertError(error.message);
+            });
+    }
 }

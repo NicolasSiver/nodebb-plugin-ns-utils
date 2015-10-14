@@ -1,20 +1,27 @@
+import Actions from '../actions';
+import CapabilitiesStore from '../stores/capabilities-store';
 import connectToStores from 'alt/utils/connectToStores';
+import objectAssign from 'object-assign';
 import React from 'react';
 import UtilsList from './utils-list';
 import UtilsStore from '../stores/utils-store';
 import UtilViewRenderer from './util-view-renderer';
 
 class Admin extends React.Component {
+    static getStores() {
+        return [CapabilitiesStore, UtilsStore];
+    }
+
+    static getPropsFromStores() {
+        return objectAssign(UtilsStore.getState(), CapabilitiesStore.getState());
+    }
+
     constructor(props) {
         super(props);
     }
 
-    static getStores() {
-        return [UtilsStore];
-    }
-
-    static getPropsFromStores() {
-        return UtilsStore.getState();
+    componentDidMount() {
+        Actions.getDatabaseName();
     }
 
     render() {
@@ -27,7 +34,8 @@ class Admin extends React.Component {
                 </div>
                 <div className="col-md-9">
                     <UtilViewRenderer
-                        util={UtilsStore.getItemById(this.props.selected)}/>
+                        util={UtilsStore.getItemById(this.props.selected)}
+                        database={this.props.database}/>
                 </div>
             </div>
         );
