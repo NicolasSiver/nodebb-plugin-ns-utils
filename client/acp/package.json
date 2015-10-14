@@ -19,6 +19,7 @@
   "jspm": {
     "dependencies": {
       "alt": "npm:alt@^0.17.4",
+      "bluebird": "npm:bluebird@^2.10.2",
       "classnames": "npm:classnames@^2.1.5",
       "react": "npm:react@^0.14.0",
       "react-dom": "npm:react-dom@^0.14.0"
