@@ -1,5 +1,5 @@
 import alt from '../alt';
-import Actions from '../actions/actions';
+import Actions from '../actions';
 
 class UtilsStore {
     constructor() {

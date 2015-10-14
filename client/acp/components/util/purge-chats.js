@@ -15,6 +15,10 @@ class PurgeChats extends React.Component {
         super(props);
     }
 
+    componentDidMount() {
+        console.log('HIII');
+    }
+
     render() {
         return (
             <div className="util-purge-chats">
