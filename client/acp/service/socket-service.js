@@ -6,16 +6,27 @@ let App = app; //Global app
 
 export default class SocketService {
     static getChatsStats() {
-        return socketEmit(SocketMethod.GET_CHATS_STATS, {})
-            .catch((error) => {
-                App.alertError(error.message);
-            });
+        return this.handleGeneralError(
+            socketEmit(SocketMethod.GET_CHATS_STATS, {})
+        );
+
     }
 
     static getDatabaseName() {
-        return socketEmit(SocketMethod.GET_DATABASE_NAME, {})
-            .catch((error) => {
-                App.alertError(error.message);
-            });
+        return this.handleGeneralError(
+            socketEmit(SocketMethod.GET_DATABASE_NAME, {})
+        );
+    }
+
+    static handleGeneralError(promise) {
+        return promise.catch((error) => {
+            App.alertError(error.message);
+        });
+    }
+
+    static startChatsPurge() {
+        return this.handleGeneralError(
+            socketEmit(SocketMethod.START_CHATS_PURGE, {})
+        );
     }
 }
