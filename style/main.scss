@@ -14,6 +14,8 @@
   }
 
   .stats {
+    margin: $margin-l 0;
+
     .stats-list {
       display: flex;
       flex-direction: row;
