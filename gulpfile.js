@@ -30,8 +30,8 @@ gulp.task('scripts', function () {
 });
 
 gulp.task('watch', function () {
-    gulp.watch('style/**/*.scss', ['css', reload]);
-    gulp.watch('client/acp/**/*.js', ['scripts', reload]);
+    gulp.watch('style/**/*.scss', {interval: 1000}, ['css', reload]);
+    gulp.watch('client/acp/**/*.js', {interval: 1000}, ['scripts', reload]);
 });
 
 gulp.task('default', ['css', 'browser-sync', 'scripts', 'watch']);
