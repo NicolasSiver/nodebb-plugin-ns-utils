@@ -30,7 +30,10 @@ export default class Stats extends React.Component {
         return (
             <div className="stats">
                 <h5>{title}</h5>
-                {this.getStatsList(this.props.names, this.props.data)}
+
+                <div className="stats-list">
+                    {this.getStatsList(this.props.names, this.props.data)}
+                </div>
             </div>
         );
     }

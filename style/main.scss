@@ -13,6 +13,32 @@
     padding: $margin-s;
   }
 
+  .stats {
+    .stats-list {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      align-items: baseline;
+      align-content: flex-start;
+    }
+
+    .stats-item {
+      flex: 0 1 auto;
+      margin-right: $margin-l;
+
+      span {
+        display: block;
+        text-align: center;
+
+        &.value {
+          font-size: 3em;
+          font-weight: 300;
+        }
+      }
+    }
+  }
+
   .utils-list {
     list-style: none;
     margin: 0;
