@@ -9,6 +9,10 @@ Set of utility functions to help you support your forum. Do you need to purge ch
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+ 
+
+- [Utilities](#utilities)
+- [Changelog](#changelog)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
