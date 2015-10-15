@@ -34,7 +34,7 @@ class PurgeChats extends React.Component {
         return (
             <div className="util-purge-chats">
                 <Stats
-                    names={{messagesCount: 'Messages', chatsCount: 'Chats'}}
+                    names={{messagesCount: 'Messages', chatsCount: 'Chats', metaCount: 'Messages Meta'}}
                     data={this.props.stats}/>
 
                 <button

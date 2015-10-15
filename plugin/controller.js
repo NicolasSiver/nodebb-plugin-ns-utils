@@ -13,6 +13,10 @@
     var dbClient = nodebb.db.client,
         nconf    = nodebb.nconf;
 
+    var nbbMessage     = /^message:\d+$/,
+        nbbMessageMeta = /^messages:uid:\d+:to:\d+$/,
+        nbbChat        = /^uid:\d+:chats$/;
+
     // Messages, documents:
     // message - 'message:5' [Hash]
     // message meta - 'messages:uid:1001:to:239', includes only message id and time [Sorted]
@@ -21,10 +25,13 @@
     Controller.getChatsStats = function (done) {
         async.parallel({
             messagesCount: function (callback) {
-                dbClient.collection('objects').count({_key: /^message:\d+$/}, callback);
+                dbClient.collection('objects').count({_key: nbbMessage}, callback);
             },
             chatsCount   : function (callback) {
-                dbClient.collection('objects').count({_key: /^uid:\d+:chats$/}, callback);
+                dbClient.collection('objects').count({_key: nbbChat}, callback);
+            },
+            metaCount: function(callback ){
+                dbClient.collection('objects').count({_key: nbbMessageMeta}, callback)
             }
         }, done);
     };
