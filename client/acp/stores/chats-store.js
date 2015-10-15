@@ -40,16 +40,14 @@ class ChatsStore {
 
     subscribe() {
         SocketService
-            .subscribe(SocketEvent.CHATS_WILL_PURGE)
-            .then(()=> {
+            .subscribe(SocketEvent.CHATS_WILL_PURGE, ()=> {
                 this.setState({
                     purgeProcess: true
                 });
             });
 
         SocketService
-            .subscribe(SocketEvent.CHATS_DID_PURGE)
-            .then(() => {
+            .subscribe(SocketEvent.CHATS_DID_PURGE, () => {
                 this.setState({
                     purgeProcess: false
                 });

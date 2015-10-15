@@ -3,7 +3,6 @@ import SocketMethod from '../models/socket-method';
 
 let App = app; //Global app
 let socketEmit = Bluebird.promisify(socket.emit, socket);
-let socketSubscribe = Bluebird.promisify(socket.on, socket);
 
 export default class SocketService {
     static getChatsStats() {
@@ -30,7 +29,7 @@ export default class SocketService {
         );
     }
 
-    static subscribe(event) {
-        return socketSubscribe(event);
+    static subscribe(event, callback) {
+        socket.on(event, callback);
     }
 }
