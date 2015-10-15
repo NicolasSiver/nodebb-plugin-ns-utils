@@ -18,7 +18,8 @@
   "scripts": [],
   "staticDirs": {
     "acp": "./client/acp",
-    "css": "./public/css"
+    "css": "./public/css",
+    "js": "./public/js"
   },
   "templates": "./public/templates"
 }
