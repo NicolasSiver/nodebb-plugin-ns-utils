@@ -20,6 +20,9 @@
         async.parallel({
             messagesCount: function (callback) {
                 dbClient.collection('objects').count({_key: /^message:\d+$/}, callback);
+            },
+            chatsCount: function (callback) {
+                dbClient.collection('objects').count({_key: /^uid:\d+:chats$/}, callback);
             }
         }, done);
     };
