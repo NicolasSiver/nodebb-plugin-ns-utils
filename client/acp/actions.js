@@ -13,6 +13,10 @@ class Actions {
     selectUtil(index, utilId) {
         return {index, utilId}
     }
+
+    startChatsPurge(){
+        this.dispatch();
+    }
 }
 
 export default alt.createActions(Actions);

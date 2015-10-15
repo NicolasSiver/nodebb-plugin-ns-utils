@@ -27,8 +27,19 @@ class PurgeChats extends React.Component {
                 <Stats
                     names={{messagesCount: 'Messages', chatsCount: 'Chats'}}
                     data={this.props.stats}/>
+
+                <button
+                    className="btn btn-danger"
+                    onClick={this.startPurge.bind(this)}
+                    disabled={true ? '' : 'disabled'}
+                    type="button"><i className="fa fa-eraser"></i> Purge
+                </button>
             </div>
         );
+    }
+
+    startPurge(e) {
+        Actions.startChatsPurge();
     }
 }
 

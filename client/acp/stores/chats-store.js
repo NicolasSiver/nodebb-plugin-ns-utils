@@ -5,7 +5,8 @@ import SocketService from '../service/socket-service';
 class ChatsStore {
     constructor() {
         this.bindListeners({
-            getChatsStats: Actions.getChatsStats
+            getChatsStats  : Actions.getChatsStats,
+            startChatsPurge: Actions.startChatsPurge
         });
 
         this.state = {
@@ -21,6 +22,11 @@ class ChatsStore {
                     stats: chatsStats
                 })
             });
+    }
+
+    startChatsPurge() {
+        SocketService
+            .startChatsPurge();
     }
 }
 
