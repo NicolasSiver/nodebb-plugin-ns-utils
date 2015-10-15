@@ -51,6 +51,9 @@ class ChatsStore {
                 this.setState({
                     purgeProcess: false
                 });
+
+                // Refresh stats after purge
+                this.getChatsStats();
             });
     }
 }

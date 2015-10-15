@@ -45,9 +45,15 @@
         done(null, {message: 'Purging chats...'});
 
         async.series([
-            async.apply(getCollection().remove, {_key: nbbMessage}),
-            async.apply(getCollection().remove, {_key: nbbMessageMeta}),
-            async.apply(getCollection().remove, {_key: nbbChat})
+            function (callback) {
+                getCollection().remove({_key: nbbMessage}, callback);
+            },
+            function (callback) {
+                getCollection().remove({_key: nbbMessageMeta}, callback);
+            },
+            function (callback) {
+                getCollection().remove({_key: nbbChat}, callback);
+            }
         ], function (error) {
             if (error) {
                 console.error(error.message);
