@@ -10,7 +10,7 @@ export default class Stats extends React.Component {
         for (let name in names) {
             if (names.hasOwnProperty(name) && data.hasOwnProperty(name)) {
                 list.push(
-                    <div className="stats-item">
+                    <div key={name} className="stats-item">
                         <span className="value">{data[name]}</span>
                         <span className="value-name">{names[name]}</span>
                     </div>
