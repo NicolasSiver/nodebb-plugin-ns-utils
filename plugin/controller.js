@@ -25,13 +25,13 @@
     Controller.getChatsStats = function (done) {
         async.parallel({
             messagesCount: function (callback) {
-                dbClient.collection('objects').count({_key: nbbMessage}, callback);
+                getCollection().count({_key: nbbMessage}, callback);
             },
             chatsCount   : function (callback) {
-                dbClient.collection('objects').count({_key: nbbChat}, callback);
+                getCollection().count({_key: nbbChat}, callback);
             },
-            metaCount: function(callback ){
-                dbClient.collection('objects').count({_key: nbbMessageMeta}, callback)
+            metaCount    : function (callback) {
+                getCollection().count({_key: nbbMessageMeta}, callback)
             }
         }, done);
     };
@@ -43,9 +43,21 @@
     Controller.startChatsPurgeProcess = function (done) {
         sockets.emit(constants.EVENT_CHATS_WILL_PURGE);
         done(null, {message: 'Purging chats...'});
-        setTimeout(function () {
+
+        async.series([
+            async.apply(getCollection().remove, {_key: nbbMessage}),
+            async.apply(getCollection().remove, {_key: nbbMessageMeta}),
+            async.apply(getCollection().remove, {_key: nbbChat})
+        ], function (error) {
+            if (error) {
+                console.error(error.message);
+            }
             sockets.emit(constants.EVENT_CHATS_DID_PURGE);
-        }, 4000);
+        });
     };
+
+    function getCollection() {
+        return dbClient.collection('objects');
+    }
 
 })(module.exports);
