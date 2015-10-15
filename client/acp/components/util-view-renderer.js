@@ -1,5 +1,6 @@
 import Caution from './caution';
 import React from 'react';
+import Sanitize from './util/sanitize';
 import Util from '../models/util';
 import ViewPurgeChats from './util/purge-chats';
 
@@ -13,6 +14,10 @@ export default class UtilViewRenderer extends React.Component {
             case Util.PURGE_CHATS:
                 return (
                     <ViewPurgeChats />
+                );
+            case Util.SANITIZE_DOCUMENTS:
+                return (
+                    <Sanitize />
                 );
             default:
                 return null;
