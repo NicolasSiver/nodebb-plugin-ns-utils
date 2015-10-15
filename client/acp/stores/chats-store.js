@@ -1,6 +1,9 @@
 import alt from '../alt';
 import Actions from '../actions';
+import SocketEvent from '../models/socket-event';
 import SocketService from '../service/socket-service';
+
+let App = app; //Global app
 
 class ChatsStore {
     constructor() {
@@ -10,8 +13,11 @@ class ChatsStore {
         });
 
         this.state = {
-            stats: null
+            stats       : null,
+            purgeProcess: false
         };
+
+        this.subscribe();
     }
 
     getChatsStats() {
@@ -26,7 +32,28 @@ class ChatsStore {
 
     startChatsPurge() {
         SocketService
-            .startChatsPurge();
+            .startChatsPurge()
+            .then((response) => {
+                App.alertSuccess(response.message);
+            });
+    }
+
+    subscribe() {
+        SocketService
+            .subscribe(SocketEvent.CHATS_WILL_PURGE)
+            .then(()=> {
+                this.setState({
+                    purgeProcess: true
+                });
+            });
+
+        SocketService
+            .subscribe(SocketEvent.CHATS_DID_PURGE)
+            .then(() => {
+                this.setState({
+                    purgeProcess: false
+                });
+            });
     }
 }
 

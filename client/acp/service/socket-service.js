@@ -1,15 +1,15 @@
 import Bluebird from 'bluebird';
 import SocketMethod from '../models/socket-method';
 
-let socketEmit = Bluebird.promisify(socket.emit, socket);
 let App = app; //Global app
+let socketEmit = Bluebird.promisify(socket.emit, socket);
+let socketSubscribe = Bluebird.promisify(socket.on, socket);
 
 export default class SocketService {
     static getChatsStats() {
         return this.handleGeneralError(
             socketEmit(SocketMethod.GET_CHATS_STATS, {})
         );
-
     }
 
     static getDatabaseName() {
@@ -28,5 +28,9 @@ export default class SocketService {
         return this.handleGeneralError(
             socketEmit(SocketMethod.START_CHATS_PURGE, {})
         );
+    }
+
+    static subscribe(event) {
+        return socketSubscribe(event);
     }
 }

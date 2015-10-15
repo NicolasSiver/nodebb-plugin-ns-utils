@@ -4,9 +4,11 @@
 (function (Controller) {
     'use strict';
 
-    var async  = require('async'),
+    var async     = require('async'),
 
-        nodebb = require('./nodebb');
+        constants = require('./constants'),
+        nodebb    = require('./nodebb'),
+        sockets   = require('./sockets');
 
     var dbClient = nodebb.db.client,
         nconf    = nodebb.nconf;
@@ -21,7 +23,7 @@
             messagesCount: function (callback) {
                 dbClient.collection('objects').count({_key: /^message:\d+$/}, callback);
             },
-            chatsCount: function (callback) {
+            chatsCount   : function (callback) {
                 dbClient.collection('objects').count({_key: /^uid:\d+:chats$/}, callback);
             }
         }, done);
@@ -29,6 +31,14 @@
 
     Controller.getPrimaryDatabase = function (done) {
         done(null, nconf.get('database'));
+    };
+
+    Controller.startChatsPurgeProcess = function (done) {
+        sockets.emit(constants.EVENT_CHATS_WILL_PURGE);
+        done(null, {message: 'Purging chats...'});
+        setTimeout(function () {
+            sockets.emit(constants.EVENT_CHATS_DID_PURGE);
+        }, 4000);
     };
 
 })(module.exports);
