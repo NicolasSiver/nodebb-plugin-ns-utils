@@ -4,6 +4,7 @@
   "description": "ACP support for utils ",
   "main": "index.js",
   "scripts": {
+    "build": "NODE_ENV=production jspm bundle-sfx index ../../public/js/acp.js --minify --skip-source-maps --no-mangle",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
