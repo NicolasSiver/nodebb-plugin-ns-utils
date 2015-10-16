@@ -24,7 +24,7 @@ Set of utility functions to help you support your forum. Do you need to purge ch
 
 ## Changelog
 
-**v1.0.0 - TBD**
+**v1.0.0 - 10/15/2015**
 
 - Initial release of the plugin
 - Database Support: only MongoDB
