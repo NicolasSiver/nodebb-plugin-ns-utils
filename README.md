@@ -12,6 +12,7 @@ Set of utility functions to help you support your forum. Do you need to purge ch
  
 
 - [Utilities](#utilities)
+- [TODO](#todo)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -20,3 +21,10 @@ Set of utility functions to help you support your forum. Do you need to purge ch
 ## Utilities
 
 - **Purge Chats** - remove all chats from the forum
+
+## TODO
+
+- Sanitize documents (remove unused document fields, example: `_import_*`)
+- Remove Users, except Administrator
+- Remove all topics and posts
+- Remove Plugin data (plugin structure database needed)
