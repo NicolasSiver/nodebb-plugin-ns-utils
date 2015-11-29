@@ -3,7 +3,7 @@
   "name": "NodeBB Utils",
   "description": "Set of utility functions to help you support your forum. Do you need to purge chats? Do you need to delete obsolete data? This plugin will help you.",
   "url": "https://github.com/NicolasSiver/nodebb-plugin-ns-utils",
-  "library": "./plugin.js",
+  "library": "./plugin/index.js",
   "hooks": [
     {
       "hook": "filter:admin.header.build",

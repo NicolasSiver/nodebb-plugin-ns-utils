@@ -3,8 +3,8 @@
 
     var async = require('async');
 
-    var filters = require('./plugin/filters'),
-        sockets = require('./plugin/sockets');
+    var filters = require('./filters'),
+        sockets = require('./sockets');
 
     //NodeBB list of Hooks: https://github.com/NodeBB/NodeBB/wiki/Hooks
     Plugin.hooks = {
