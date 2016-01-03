@@ -6,7 +6,7 @@ class Actions {
         this.dispatch();
     }
 
-    getDatabaseName(){
+    getDatabaseName() {
         this.dispatch();
     }
 
@@ -14,8 +14,12 @@ class Actions {
         return {index, utilId}
     }
 
-    startChatsPurge(){
+    startChatsPurge() {
         this.dispatch();
+    }
+
+    startSanitize(options) {
+        return {options};
     }
 }
 

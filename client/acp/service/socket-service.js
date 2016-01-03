@@ -1,5 +1,5 @@
 import Bluebird from 'bluebird';
-import SocketMethod from '../models/socket-method';
+import * as SocketMethod from '../models/socket-method';
 
 let App = app; //Global app
 let socketEmit = Bluebird.promisify(socket.emit, socket);
@@ -26,6 +26,12 @@ export default class SocketService {
     static startChatsPurge() {
         return this.handleGeneralError(
             socketEmit(SocketMethod.START_CHATS_PURGE, {})
+        );
+    }
+
+    static startSanitize(options) {
+        return this.handleGeneralError(
+            socketEmit(SocketMethod.START_SANITIZE, options)
         );
     }
 
