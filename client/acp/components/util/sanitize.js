@@ -1,9 +1,18 @@
 import Actions from '../../actions';
-import Caution from '../caution';
+import SanitizeStore from '../../stores/sanitize-store';
 import classNames from 'classnames';
+import connectToStores from 'alt/utils/connectToStores';
 import React from 'react';
 
-export default class Sanitize extends React.Component {
+class Sanitize extends React.Component {
+    static getStores() {
+        return [SanitizeStore];
+    }
+
+    static getPropsFromStores() {
+        return SanitizeStore.getState();
+    }
+
     constructor(props) {
         super(props);
     }
@@ -11,10 +20,11 @@ export default class Sanitize extends React.Component {
     render() {
         return (
             <div className="sanitize">
-                <Caution
-                    title="Sorry"
-                    text="Will be added in next update."/>
+
             </div>
         );
     }
 }
+
+
+export default connectToStores(Sanitize);
