@@ -21,6 +21,10 @@ class Actions {
     startSanitize(options) {
         return {options};
     }
+
+    updateSanitizeKeyMatch(match){
+        return {match};
+    }
 }
 
 export default alt.createActions(Actions);

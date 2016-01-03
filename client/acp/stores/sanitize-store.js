@@ -8,11 +8,13 @@ let App = app; //Global app
 class SanitizeStore {
     constructor() {
         this.bindListeners({
-            startSanitize: Actions.startSanitize
+            startSanitize         : Actions.startSanitize,
+            updateSanitizeKeyMatch: Actions.updateSanitizeKeyMatch
         });
 
         this.state = {
             processing: false,
+            keyMatch  : null,
             stats     : null
         };
 
@@ -30,6 +32,12 @@ class SanitizeStore {
     }
 
     subscribe() {
+    }
+
+    updateSanitizeKeyMatch(data) {
+        this.setState({
+            keyMatch: data.match
+        });
     }
 }
 
