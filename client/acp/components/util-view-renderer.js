@@ -37,7 +37,7 @@ export default class UtilViewRenderer extends React.Component {
         return (
             <div className="panel panel-default">
                 <div className="panel-heading">{this.props.util.name}</div>
-                <div className="panel-body">
+                <div className="panel-body util-body">
                     <Caution
                         text="Please, create data backup. Plugin performs irreversible actions: deletes documents, changes documents in place, etc."/>
                     {this.getWrongDatabaseViewIfNeeded()}
