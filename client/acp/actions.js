@@ -18,8 +18,8 @@ class Actions {
         this.dispatch();
     }
 
-    startSanitize(options) {
-        return {options};
+    startSanitize() {
+        this.dispatch();
     }
 
     updateSanitizeKeyMatch(match){

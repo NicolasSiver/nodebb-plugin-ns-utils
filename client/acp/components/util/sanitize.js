@@ -1,8 +1,9 @@
 import Actions from '../../actions';
-import SanitizeStore from '../../stores/sanitize-store';
+import Caution from '../caution';
 import classNames from 'classnames';
 import connectToStores from 'alt/utils/connectToStores';
 import React from 'react';
+import SanitizeStore from '../../stores/sanitize-store';
 
 class Sanitize extends React.Component {
     static getStores() {
@@ -15,6 +16,15 @@ class Sanitize extends React.Component {
 
     constructor(props) {
         super(props);
+    }
+
+    getError() {
+        if (this.props.keyMatchError) {
+            return <Caution
+                text={this.props.keyMatchError}/>;
+        } else {
+            return null;
+        }
     }
 
     getStartForm() {
@@ -47,15 +57,15 @@ class Sanitize extends React.Component {
     render() {
         return (
             <div className="util-sanitize">
+                {this.getError()}
                 {this.getStartForm()}
             </div>
         );
     }
 
     start() {
-
+        Actions.startSanitize();
     }
 }
-
 
 export default connectToStores(Sanitize);

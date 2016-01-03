@@ -13,31 +13,51 @@ class SanitizeStore {
         });
 
         this.state = {
-            processing: false,
-            keyMatch  : null,
-            stats     : null
+            processing   : false,
+            keyMatch     : null,
+            keyMatchError: null,
+            stats        : null
         };
 
         this.subscribe();
     }
 
-    startSanitize(options) {
-        SocketService
-            .startSanitize(options)
-            .then((result) => {
-                this.setState({
-                    processing: result.status
-                })
-            });
+    startSanitize() {
+        if (this.validate(this.state.keyMatch)) {
+
+        }
+        //SocketService
+        //    .startSanitize(options)
+        //    .then((result) => {
+        //        this.setState({
+        //            processing: result.status
+        //        })
+        //    });
     }
 
     subscribe() {
     }
 
     updateSanitizeKeyMatch(data) {
+        let {match} = data;
         this.setState({
-            keyMatch: data.match
+            keyMatch     : match,
+            keyMatchError: (!match) ? 'Regular expression is empty' : null
         });
+    }
+
+    validate(exp) {
+        let valid = false;
+        try {
+            let reg = new RegExp(exp, 'g');
+            valid = true;
+        } catch (e) {
+            this.setState({
+                keyMatchError: e.message
+            });
+        }
+
+        return valid;
     }
 }
 
