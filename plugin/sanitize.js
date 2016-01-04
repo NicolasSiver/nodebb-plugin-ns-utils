@@ -38,7 +38,7 @@
                 cursor.count(callback);
             },
             regex: function (callback) {
-                callback(null, new RegExp(match, 'g'))
+                callback(null, new RegExp(match))
             }
         }, function (error, result) {
             if (error) {
@@ -48,36 +48,72 @@
             var count = result.count;
             var regex = result.regex;
             var index = 0, documentsWritten = 0, fieldsDeleted = 0;
-            var fieldsCache = NaN;
+            var removeFields = null, document = null;
+            var emitProgress = function () {
+                Sanitize.emitProgress(
+                    setStats(stats, index, documentsWritten, fieldsDeleted),
+                    100 * index / count,
+                    progressStep);
+            };
 
-            cursor.each(function (error, document) {
-                if (document != null) {
-                    fieldsCache = fieldsDeleted;
-                    ++index;
-
-                    for (var key in document) {
-                        if (regex.test(key)) {
-                            delete document.key;
-                            ++fieldsDeleted;
+            async.doWhilst(
+                function (next) {
+                    cursor.nextObject(function (error, item) {
+                        if (error) {
+                            return next(error);
                         }
+
+                        document = item;
+
+                        if (document != null) {
+                            ++index;
+
+                            for (var key in document) {
+                                if (regex.test(key)) {
+                                    if (removeFields === null) {
+                                        removeFields = {};
+                                    }
+                                    removeFields[key] = '';
+                                    ++fieldsDeleted;
+                                }
+                            }
+
+                            // There were field deletion
+                            if (removeFields) {
+                                dbClient.collection('objects').update(
+                                    {_id: document._id},
+                                    {$unset: removeFields},
+                                    function (error) {
+                                        if (error) {
+                                            return next(error);
+                                        }
+                                        ++documentsWritten;
+                                        removeFields = null;
+                                        emitProgress();
+                                        next(null);
+                                    }
+                                );
+                            } else {
+                                emitProgress();
+                                next(null);
+                            }
+                        } else {
+                            next(null);
+                        }
+                    });
+                },
+                function () {
+                    return document != null;
+                },
+                function (error) {
+                    if (error) {
+                        return done(error);
                     }
-
-                    // There were field deletion
-                    if (fieldsCache != fieldsDeleted) {
-                        ++documentsWritten;
-                    }
-
-                    Sanitize.emitProgress(
-                        setStats(stats, index, documentsWritten, fieldsDeleted),
-                        100 * index / count, // one decimal
-                        progressStep);
-
-                } else {
                     parsing = false;
                     emitStatus(parsing);
                     done(null);
                 }
-            });
+            );
         });
     };
 
