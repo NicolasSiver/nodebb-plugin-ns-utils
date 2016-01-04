@@ -5,7 +5,8 @@
 
         constants = require('./constants'),
         nodebb    = require('./nodebb'),
-        sockets   = require('./sockets');
+        sockets   = require('./sockets'),
+        sanitize = require('./sanitize');
 
     var dbClient = nodebb.db.client,
         nconf    = nodebb.nconf;
@@ -64,8 +65,7 @@
      * @param done
      */
     Controller.startSanitize = function (payload, done) {
-        sockets.emit(constants.EVENT_SANITIZE_STATUS_DID_CHANGE, {status: true});
-        done(null);
+        sanitize.sanitizeKeys(payload.match, done);
     };
 
     function getCollection() {

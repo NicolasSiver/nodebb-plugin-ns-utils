@@ -63,6 +63,7 @@ class Sanitize extends React.Component {
     }
 
     render() {
+        console.log(this.props);
         const view = (this.props.processing) ? this.getDashboard() : this.getStartForm();
         return (
             <div className="util-sanitize">
