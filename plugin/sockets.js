@@ -38,7 +38,10 @@
     };
 
     Sockets.sanitizeStart = function (socket, payload, callback) {
-        controller.startSanitize(payload, callback);
+        controller.startSanitize(payload, function (error) {
+            //NOOP async process has finished
+        });
+        callback(null);
     };
 
 })(module.exports);
