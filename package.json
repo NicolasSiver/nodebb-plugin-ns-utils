@@ -1,6 +1,6 @@
 {
   "name": "nodebb-plugin-ns-utils",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "Set of utility functions to help you support your forum. Do you need to purge chats? Do you need to delete obsolete data? This plugin will help you.",
   "main": "./plugin/index.js",
   "scripts": {
