@@ -18,6 +18,10 @@ Set of utility functions to help you support your forum. Do you need to purge ch
 
 **Caution: plugin can do harm to your data. Please, backup your data.**
 
+Works only with MongoDB:
+
+![MongoDB Logo](docs/logo-mongodb.png)
+
 ## Utilities
 
 - **Purge Chats** - remove all chats from the forum
