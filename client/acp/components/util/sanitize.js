@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import connectToStores from 'alt/utils/connectToStores';
 import React from 'react';
 import SanitizeStore from '../../stores/sanitize-store';
+import Stats from '../stats';
 
 class Sanitize extends React.Component {
     static getStores() {
@@ -16,6 +17,12 @@ class Sanitize extends React.Component {
 
     constructor(props) {
         super(props);
+    }
+
+    getDashboard() {
+        return <Stats
+            names={{progress: 'Complete', fieldsPurged: 'Fields', docsParsed: 'Parsed', docsUpdated: 'Updated'}}
+            data={this.props.stats}/>;
     }
 
     getError() {
@@ -56,10 +63,11 @@ class Sanitize extends React.Component {
     }
 
     render() {
+        const view = (this.props.processing) ? this.getDashboard() : this.getStartForm();
         return (
             <div className="util-sanitize">
                 {this.getError()}
-                {this.getStartForm()}
+                {view}
             </div>
         );
     }
