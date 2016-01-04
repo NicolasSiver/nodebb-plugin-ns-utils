@@ -1,6 +1,6 @@
 import alt from '../alt';
 import Actions from '../actions';
-import SocketEvent from '../models/socket-event';
+import * as SocketEvent from '../models/socket-event';
 import SocketService from '../service/socket-service';
 
 let App = app; //Global app
@@ -24,18 +24,32 @@ class SanitizeStore {
 
     startSanitize() {
         if (this.validate(this.state.keyMatch)) {
-
+            SocketService
+                .startSanitize({match: this.state.keyMatch})
+                .then(() => {
+                    App.alertSuccess('Sanitize process should start');
+                });
         }
-        //SocketService
-        //    .startSanitize(options)
-        //    .then((result) => {
-        //        this.setState({
-        //            processing: result.status
-        //        })
-        //    });
     }
 
     subscribe() {
+        SocketService
+            .subscribe(
+                SocketEvent.SANITIZE_STATUS_DID_CHANGE,
+                (result) => {
+                    this.setState({
+                        processing: result.status
+                    });
+                });
+
+        SocketService
+            .subscribe(
+                SocketEvent.SANITIZE_STATS_DID_CHANGE,
+                (result) => {
+                    this.setState({
+                        stats: result.stats
+                    });
+                });
     }
 
     updateSanitizeKeyMatch(data) {

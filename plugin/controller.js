@@ -1,6 +1,3 @@
-/**
- * Created by Nicolas on 10/13/15.
- */
 (function (Controller) {
     'use strict';
 
@@ -60,6 +57,15 @@
             }
             sockets.emit(constants.EVENT_CHATS_DID_PURGE);
         });
+    };
+
+    /**
+     * @param payload will include field 'match' with string that should be compiled as RegExp
+     * @param done
+     */
+    Controller.startSanitize = function (payload, done) {
+        sockets.emit(constants.EVENT_SANITIZE_STATUS_DID_CHANGE, {status: true});
+        done(null);
     };
 
     function getCollection() {

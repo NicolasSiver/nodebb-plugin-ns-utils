@@ -1,6 +1,6 @@
 import alt from '../alt';
 import Actions from '../actions';
-import SocketEvent from '../models/socket-event';
+import * as SocketEvent from '../models/socket-event';
 import SocketService from '../service/socket-service';
 
 let App = app; //Global app

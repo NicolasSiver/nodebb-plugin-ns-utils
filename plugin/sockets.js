@@ -16,6 +16,7 @@
         adminSockets[constants.SOCKET_NAMESPACE].chatsStatsGet = Sockets.chatsStatsGet;
         adminSockets[constants.SOCKET_NAMESPACE].primaryDbGet = Sockets.primaryDbGet;
         adminSockets[constants.SOCKET_NAMESPACE].chatsPurgeStart = Sockets.chatsPurgeStart;
+        adminSockets[constants.SOCKET_NAMESPACE].sanitizeStart = Sockets.sanitizeStart;
 
         callback();
     };
@@ -34,6 +35,10 @@
 
     Sockets.primaryDbGet = function (socket, payload, callback) {
         controller.getPrimaryDatabase(callback);
+    };
+
+    Sockets.sanitizeStart = function (socket, payload, callback) {
+        controller.startSanitize(payload, callback);
     };
 
 })(module.exports);

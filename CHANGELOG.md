@@ -1,5 +1,9 @@
 # Changelog
 
+### v2.1.0 - TBD
+
+- New utility: sanitize documents
+
 ### v2.0.0 - 11/29/2015
 
 - Compatibility with 0.9 NodeBB
