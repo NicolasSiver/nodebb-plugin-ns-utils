@@ -1,6 +1,6 @@
 # Changelog
 
-### v2.1.0 - TBD
+### v2.1.0 - 1/4/2016
 
 - New utility: sanitize documents
 
