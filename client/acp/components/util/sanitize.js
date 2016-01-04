@@ -44,6 +44,7 @@ class Sanitize extends React.Component {
                 <button
                     className="btn btn-danger"
                     onClick={this.start.bind(this)}
+                    disabled={!this.props.keyMatch ? 'disabled' : ''}
                     type="button"><i className="fa fa-eraser"></i> Start
                 </button>
             </div>
