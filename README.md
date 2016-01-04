@@ -21,10 +21,10 @@ Set of utility functions to help you support your forum. Do you need to purge ch
 ## Utilities
 
 - **Purge Chats** - remove all chats from the forum
+- **Sanitize Documents** - remove matched key value pairs from all documents
 
 ## TODO
 
-- Sanitize documents (remove unused document fields, example: `_import_*`)
 - Remove Users, except Administrator
 - Remove all topics and posts
 - Remove Plugin data (plugin structure database needed)
