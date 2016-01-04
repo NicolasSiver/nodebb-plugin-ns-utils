@@ -34,6 +34,14 @@ class Sanitize extends React.Component {
         }
     }
 
+    getSanitizeInfo() {
+        return (
+            <div className="alert alert-info" role="alert">
+                Processed {this.props.stats.docsParsed} documents, where {this.props.stats.fieldsPurged} fields were deleted. {this.props.stats.docsUpdated} documents were updated.
+            </div>
+        );
+    }
+
     getStartForm() {
         return (
             <div>
@@ -65,8 +73,10 @@ class Sanitize extends React.Component {
     render() {
         console.log(this.props);
         const view = (this.props.processing) ? this.getDashboard() : this.getStartForm();
+        const previous = (!this.props.processing && this.props.stats) ? this.getSanitizeInfo() : null;
         return (
             <div className="util-sanitize">
+                {previous}
                 {this.getError()}
                 {view}
             </div>

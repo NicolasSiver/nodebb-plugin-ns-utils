@@ -71,7 +71,7 @@
                         setStats(stats, index, documentsWritten, fieldsDeleted),
                         100 * index / count, // one decimal
                         progressStep);
-                    
+
                 } else {
                     parsing = false;
                     emitStatus(parsing);
